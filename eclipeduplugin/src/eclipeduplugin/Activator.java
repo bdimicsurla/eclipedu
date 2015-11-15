@@ -8,7 +8,7 @@ import org.osgi.framework.BundleContext;
  * The activator class controls the plug-in life cycle
  */
 public class Activator extends AbstractUIPlugin {
-
+	//DRUGA PROBA COMMIT-A
 	// The plug-in ID
 	public static final String PLUGIN_ID = "eclipeduplugin"; //$NON-NLS-1$
 
