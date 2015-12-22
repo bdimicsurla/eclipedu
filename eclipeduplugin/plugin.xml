@@ -3,26 +3,72 @@
 <plugin>
 
    <extension
-         point="org.eclipse.ui.popupMenus">
-      <objectContribution
-            objectClass="org.eclipse.core.resources.IFile"
-            id="eclipeduplugin.contribution1">
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="proba.commands.category">
+      </category>
+      <command
+            name="Start"
+            categoryId="proba.commands.category"
+            id="proba.commands.start">
+      </command>
+      <command
+            categoryId="proba.commands.category"
+            id="proba.commandFinish"
+            name="Finish">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="proba.commands.start"
+            class="plugin.handlers.SampleHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="proba.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="proba.toolbars.sampleToolbar">
+            <command
+                  commandId="proba.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  tooltip="Say hello world"
+                  id="proba.toolbars.sampleCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
-               label="New Submenu"
-               path="additions"
-               id="eclipeduplugin.menu1">
-            <separator
-                  name="group1">
-            </separator>
+               id="proba.menus.startTest"
+               label="Start Test">
+            <command
+                  commandId="proba.commands.start"
+                  id="proba.menus.startTest"
+                  style="push">
+            </command>
+            <command
+                  commandId="proba.commandFinish"
+                  id="proba.menus.finishTest"
+                  style="push">
+            </command>
          </menu>
-         <action
-               label="New Action"
-               class="eclipeduplugin.popup.actions.NewAction"
-               menubarPath="eclipeduplugin.menu1/group1"
-               enablesFor="1"
-               id="eclipeduplugin.newAction">
-         </action>
-      </objectContribution>
+      </menuContribution>
    </extension>
 
 </plugin>

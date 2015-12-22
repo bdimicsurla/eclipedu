@@ -1,12 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipeduplugin
+Bundle-Name: Proba
 Bundle-SymbolicName: eclipeduplugin;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: eclipeduplugin.Activator
+Bundle-Activator: plugin.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.core.resources,
- org.eclipse.jgit;bundle-version="4.0.3"
+ org.eclipse.jgit
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
+Export-Package: plugin.eclipse.wb.swt
