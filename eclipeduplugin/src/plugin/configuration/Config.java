@@ -15,6 +15,7 @@ public class Config {
 		properties.setProperty("Project_name", "eclipeduplugin");
 		properties.setProperty("Remote_repository", "https://github.com/bdimicsurla/eclipedu.git");
 		properties.setProperty("Key_path", "D:/Projects/Project's Java/Fax/VezbeZaDiplomski/kljucevi/studentIS1");
+		properties.setProperty("Kvalues_path", "D:/");
 		properties.setProperty("Work_repository", "D:/Git/EclipsePlugin/");
 		properties.setProperty("CPUsername", "KlincovM");
 		properties.setProperty("CPPassword", "dusandragan22");
