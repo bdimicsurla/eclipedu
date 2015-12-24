@@ -7,15 +7,14 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
-
-import plugin.swt.dialogs.DijalogPocni;
+import plugin.swt.dialogs.StartDialog;
 
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Button;
 
 public class StartTest {
 
-	protected Shell shlPocniKolokvijum;
+	public Shell shlPocniKolokvijum;
 	private Text textKolokvijum;
 	private Text textGrupa;
 	private Text textPrezime;
@@ -106,12 +105,13 @@ public class StartTest {
 		Listener listener = new Listener() {
 			@Override
 			public void handleEvent(Event event) {
+				shlPocniKolokvijum.setVisible(false);
 				System.out.println(textBrojIndexa.getText());
 				// TODO Auto-generated method stub
 				// System.out.println("Milos Klincov");
 				// Display display = new Display ();
 				// Shell shell = new Shell (display,SWT.BORDER);
-				DijalogPocni dp= new DijalogPocni( new Shell(),1);
+				StartDialog dp= new StartDialog( new Shell(),1,StartTest.this);
 				dp.setName(textIme.getText());
 				dp.setLastname(textPrezime.getText());
 				dp.setBrIndex(textBrojIndexa.getText());

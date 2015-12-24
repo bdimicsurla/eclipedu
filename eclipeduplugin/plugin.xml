@@ -25,6 +25,10 @@
             commandId="proba.commands.start"
             class="plugin.handlers.SampleHandler">
       </handler>
+      <handler
+            class="plugin.handlers.FinishButtonHandler"
+            commandId="proba.commandFinish">
+      </handler>
    </extension>
    <extension
          point="org.eclipse.ui.bindings">
@@ -43,7 +47,6 @@
                id="proba.toolbars.sampleToolbar">
             <command
                   commandId="proba.commands.sampleCommand"
-                  icon="icons/sample.gif"
                   tooltip="Say hello world"
                   id="proba.toolbars.sampleCommand">
             </command>
