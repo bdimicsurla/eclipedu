@@ -42,31 +42,19 @@
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-         <toolbar
-               id="proba.toolbars.sampleToolbar">
-            <command
-                  commandId="proba.commands.sampleCommand"
-                  tooltip="Say hello world"
-                  id="proba.toolbars.sampleCommand">
-            </command>
-         </toolbar>
-      </menuContribution>
-   </extension>
-   <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
                id="proba.menus.startTest"
                label="Start Test">
             <command
                   commandId="proba.commands.start"
+                  icon="icons/start.png"
                   id="proba.menus.startTest"
                   style="push">
             </command>
             <command
                   commandId="proba.commandFinish"
+                  icon="icons/true.png"
                   id="proba.menus.finishTest"
                   style="push">
             </command>
