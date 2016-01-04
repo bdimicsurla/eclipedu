@@ -21,13 +21,14 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import plugin.git.JGit;
 
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.ProgressBar;
 
 public class FinishTestDialog extends Dialog {
 
 	protected Object result;
 	protected Shell shell;
 	private JGit jgit;
-
+	private ProgressBar progressBar;
 	/**
 	 * Create the dialog.
 	 * @param parent
@@ -59,9 +60,12 @@ public class FinishTestDialog extends Dialog {
 	 * Create contents of the dialog.
 	 */
 	private void createContents() {
+		progressBar = new ProgressBar(shell, SWT.NONE);
+		progressBar.setBounds(10, 58, 339, 17);
+		
 		jgit=new JGit();
 		shell = new Shell(getParent(), getStyle());
-		shell.setSize(365, 109);
+		shell.setSize(365, 148);
 		shell.setText(getText());
 		shell.setLayout(null);
 		
@@ -70,6 +74,10 @@ public class FinishTestDialog extends Dialog {
 			public void handleEvent(Event event) {
 				// TODO Auto-generated method stub
 				try {
+					progressBar.setVisible(true);
+					progressBar.setMinimum(0);
+					progressBar.setMaximum(10);
+					
 					String filePath="D:/Proba/KeyValues.txt";				
 					BufferedReader br = new BufferedReader(new FileReader(filePath));
 					String branchName=br.readLine();
@@ -83,6 +91,21 @@ public class FinishTestDialog extends Dialog {
 					jgit.gitCheckout(branchName);
 					System.out.println(jgit.gitCommit(branchName+" je omitovao kolokvijum"));;
 					System.out.println(jgit.gitPush());;
+					
+					int i=0;
+					while(i<10){
+						i=i+1;
+						try {
+							
+							progressBar.setSelection(i);
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+						
+					}
 					
 					shell.dispose();
 				} catch (FileNotFoundException e) {
@@ -114,13 +137,15 @@ public class FinishTestDialog extends Dialog {
 		
 		Button btnNe = new Button(shell, SWT.NONE);
 		btnNe.addListener(SWT.Selection, listenerNe);
-		btnNe.setBounds(84, 46, 75, 25);
+		btnNe.setBounds(84, 95, 75, 25);
 		btnNe.setText("Ne");
 		
 		Button btnDa = new Button(shell, SWT.NONE);
 		btnDa.addListener(SWT.Selection,listenerDa);
-		btnDa.setBounds(180, 46, 75, 25);
+		btnDa.setBounds(180, 95, 75, 25);
 		btnDa.setText("Da");
+		
+		
 
 	}
 }
